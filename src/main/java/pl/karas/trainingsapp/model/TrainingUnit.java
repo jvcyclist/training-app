@@ -16,17 +16,17 @@ public class TrainingUnit {
     @Column(name = "description")
     private String description;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "training_unit_id",referencedColumnName = "user_id",insertable = false,updatable = false)
+    @ManyToOne
+    @JoinColumn(name = "created_by")
     private User created_by;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "training_unit_id",referencedColumnName = "user_id", insertable = false,updatable = false)
+    @ManyToOne
+    @JoinColumn(name = "assigned_to")
     private User assigned_to;
 
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "training_unit_id", referencedColumnName = "training_type_id",insertable = false,updatable = false)
+    @ManyToOne
+    @JoinColumn(name = "training_type")
     private TrainingType training_type;
 
     @Column(name = "training_date")
